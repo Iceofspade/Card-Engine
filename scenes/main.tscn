@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://fum7u27gi35w"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_cjv6a"]
+[ext_resource type="Texture2D" uid="uid://b0t3vm2cn0g5p" path="res://icon.svg" id="2_y8c8v"]
+[ext_resource type="PackedScene" uid="uid://lmme73uovu4y" path="res://scenes/card_controler.tscn" id="4_j827x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jera"]
+size = Vector2(123, 123)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_cjv6a")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(445, 138)
+texture = ExtResource("2_y8c8v")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="StaticBody2D" parent="Icon"]
+position = Vector2(-1, -8)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Area2D"]
+position = Vector2(-0.5, 6.5)
+shape = SubResource("RectangleShape2D_2jera")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(155, 123)
+texture = ExtResource("2_y8c8v")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Icon2"]
+position = Vector2(-1, -8)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon2/Area2D"]
+position = Vector2(-0.5, 6.5)
+shape = SubResource("RectangleShape2D_2jera")
+
+[node name="Card controler" parent="." instance=ExtResource("4_j827x")]
+position = Vector2(552, 446)

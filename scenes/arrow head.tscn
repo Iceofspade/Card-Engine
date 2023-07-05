@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://c155kouaiq1lu"]
+
+[ext_resource type="Script" path="res://scenes/arrow head.gd" id="1_4xi2w"]
+
+[sub_resource type="Curve" id="Curve_c87yo"]
+max_value = 10.0
+_data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(1, 6.45455), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Arrow" type="Line2D"]
+z_index = 10
+z_as_relative = false
+texture_filter = 2
+texture_repeat = 2
+width_curve = SubResource("Curve_c87yo")
+default_color = Color(0.160784, 0.533333, 0.196078, 1)
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+sharp_limit = 50.0
+round_precision = 32
+antialiased = true
+script = ExtResource("1_4xi2w")
+
+[node name="head" type="Polygon2D" parent="."]
+position = Vector2(23, 0)
+color = Color(0.196078, 0.964706, 0.25098, 1)
+polygon = PackedVector2Array(-64, -64, 64, 0, -64, 64, -24, 0)
+
+[node name="Area2D" type="Area2D" parent="head"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="head/Area2D"]
+polygon = PackedVector2Array(-64, -64, 64, 0, -64, 64, -24, 0)
+
+[connection signal="body_entered" from="head/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="head/Area2D" to="." method="_on_area_2d_body_exited"]

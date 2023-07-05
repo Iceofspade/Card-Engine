@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://lmme73uovu4y"]
+
+[ext_resource type="Script" path="res://scenes/Card controler.gd" id="1_jbi2s"]
+
+[node name="Card controler" type="Node2D"]
+script = ExtResource("1_jbi2s")
+
+[node name="Hand" type="Node2D" parent="."]
+
+[node name="Deck" type="Node2D" parent="."]
+position = Vector2(411, 0)
+
+[node name="Empty" type="Node2D" parent="."]

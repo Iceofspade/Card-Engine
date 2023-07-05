@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://dro2d2bqddf3k"]
+
+[ext_resource type="Script" path="res://scenes/card.gd" id="1_28jf0"]
+[ext_resource type="FontFile" uid="uid://cvgocnxu65cmf" path="res://assets/Arvo-Bold.ttf" id="2_ol3tj"]
+[ext_resource type="PackedScene" uid="uid://c155kouaiq1lu" path="res://scenes/arrow head.tscn" id="3_j1ebx"]
+
+[node name="Card" type="Control"]
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 103.0
+offset_bottom = 146.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_28jf0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 146.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 97.0
+offset_right = 103.0
+offset_bottom = 146.0
+color = Color(0.235294, 0.407843, 0.901961, 1)
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 6
+custom_minimum_size = Vector2(100, 144)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 102.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ol3tj")
+theme_override_font_sizes/font_size = 12
+text = "Lorem ipsum dolor sit a"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 146.0
+
+[node name="Arrow" parent="." instance=ExtResource("3_j1ebx")]
+visible = false
+position = Vector2(60, 86)
+scale = Vector2(0.25, 0.25)
+
+[connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="arrow_contact" from="Arrow" to="." method="_on_arrow_contact"]
+[connection signal="arrow_hovering" from="Arrow" to="." method="_on_arrow_hovering"]
+[connection signal="arrow_released" from="Arrow" to="." method="_on_arrow_released"]
+[connection signal="arrow_stop_hovering" from="Arrow" to="." method="_on_arrow_stop_hovering"]
