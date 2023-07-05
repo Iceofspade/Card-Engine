@@ -20,7 +20,7 @@ func _ready():
 
 	pass # Replace with function body.
 
-func _process(_delta):
+func _process(_delta): 
 	if !is_arrow_disabled:
 		draw_curve()
 
